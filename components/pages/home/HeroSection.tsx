@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Zap, Shield } from "lucide-react";
 
-export default function Hero() {
+export default function HeroSection() {
   return (
     <section className="relative overflow-hidden">
       {/* Gradient background glow */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { Book, Menu, Sunset, Trees, User, Zap } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -27,6 +27,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Logo from "../shared/Logo";
+import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { DropdownMenuComp } from "../shared/DropdownMenu";
 
 interface MenuItem {
   title: string;
@@ -57,6 +60,20 @@ interface Navbar1Props {
     };
   };
 }
+
+export interface IDropDownMenuItems {
+  icon: React.ReactElement,
+  title: string,
+  href: string
+} 
+
+const dropDownMenuItems: IDropDownMenuItems[] = [
+  {
+    icon: <User/>,
+    title: 'Dashboard',
+    href: '/dashboard'
+  }
+]
 
 const Navbar = ({
   logo = {
@@ -150,7 +167,7 @@ const Navbar = ({
         <nav className="hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-6">
             {/* Logo */}
-            <Logo/>
+            <Logo />
             <div className="flex items-center">
               <NavigationMenu>
                 <NavigationMenuList>
@@ -159,13 +176,24 @@ const Navbar = ({
               </NavigationMenu>
             </div>
           </div>
-          <div className="flex gap-2">
-            <Button asChild variant="outline" size="sm">
-              <a href={auth.login.url}>{auth.login.title}</a>
-            </Button>
-            <Button asChild size="sm">
-              <a href={auth.signup.url}>{auth.signup.title}</a>
-            </Button>
+
+          <div className="flex gap-5">
+            <div className="flex gap-2">
+              <Button asChild variant="outline" size="sm">
+                <a href={auth.login.url}>{auth.login.title}</a>
+              </Button>
+              <Button asChild size="sm">
+                <a href={auth.signup.url}>{auth.signup.title}</a>
+              </Button>
+            </div>
+
+            {/* avatar  */}
+            <DropdownMenuComp dropdownMenuItems={dropDownMenuItems} className="w-[200px]">
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </DropdownMenuComp>
           </div>
         </nav>
 
@@ -173,7 +201,7 @@ const Navbar = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Logo/>
+            <Logo />
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
@@ -183,13 +211,8 @@ const Navbar = ({
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
-                      <img
-                        src={logo.src}
-                        className="max-h-8 dark:invert"
-                        alt={logo.alt}
-                      />
-                    </a>
+                    {/* Logo  */}
+                    <Logo />
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 p-4">
@@ -203,10 +226,10 @@ const Navbar = ({
 
                   <div className="flex flex-col gap-3">
                     <Button asChild variant="outline">
-                      <a href={auth.login.url}>{auth.login.title}</a>
+                      <Link href={auth.login.url}>{auth.login.title}</Link>
                     </Button>
                     <Button asChild>
-                      <a href={auth.signup.url}>{auth.signup.title}</a>
+                      <Link href={auth.signup.url}>{auth.signup.title}</Link>
                     </Button>
                   </div>
                 </div>
@@ -246,6 +269,8 @@ const renderMenuItem = (item: MenuItem) => {
     </NavigationMenuItem>
   );
 };
+
+
 
 const renderMobileMenuItem = (item: MenuItem) => {
   if (item.items) {
