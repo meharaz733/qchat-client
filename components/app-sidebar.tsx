@@ -11,12 +11,19 @@ import {
   Activity,
   ActivityIcon,
   BaggageClaim,
+  Bot,
+  ChartNoAxesCombined,
   GitPullRequestIcon,
+  Inbox,
   List,
   ListCheck,
+  MessageSquare,
   MessageSquareDiff,
+  MessageSquareQuote,
+  MessagesSquare,
   PersonStanding,
   PlaneTakeoff,
+  ScrollText,
   Settings,
   Star,
   User,
@@ -65,85 +72,80 @@ const data = {
   ],
   userNavItems: [
     {
-      title: "Travel Plans",
-      icon: <PlaneTakeoff size={28}/>,
+      title: "Overview",
+      icon: <ChartNoAxesCombined size={30}/>,
       isActive: true,
+      url: '/dashboard/user/overview',
       items: [
-        {
-          title: "Create Plan",
-          url: "/user/dashboard/create-plan",
-          icon: <BaggageClaim size={28}/>,
-        },
-        {
-          title: "My Plans",
-          url: "/user/dashboard/my-travel-plans",
-          icon: <List size={28}/>,
-        },
-        {
-          title: "Matched Travelers",
-          url: "/user/dashboard/matched-travelers",
-          icon: <Users size={28}/>,
-        },
+        
       ],
     },
-    // {
-    //   title: "Join Request",
-    //   icon: <GitPullRequestIcon />,
-    //   isActive: false,
-    //   items: [
-    //     {
-    //       title: "Request Got",
-    //       url: "/user/dashboard/join-requests-got",
-    //       icon: <ListCheck />,
-    //     },
-    //     {
-    //       title: "Request Sent",
-    //       url: "/user/dashboard/join-requests-sent",
-    //       icon: <ListCheck />,
-    //     },
-    //   ],
-    // },
     {
-      title: "Trip Request",
-      icon: <GitPullRequestIcon />,
+      title: "Add Document",
+      icon: <ScrollText size={30} />,
+      isActive: false,
+      items: [
+        
+      ],
+    },
+    {
+      title: "Chat Inbox",
+      icon: <MessagesSquare size={30}/>,
       isActive: false,
       items: [
         {
-          title: "Incoming Requests",
-          url: "/user/dashboard/incoming-requests",
+          title: "WordPress Pcakges",
+          url: "/dashboard/user/chat-inbox/wordpress-packages",
           icon: <ListCheck />,
         },
-        // {
-        //   title: "Outgoing Request",
-        //   url: "/user/dashboard/outgoing-requests",
-        //   icon: <ListCheck />,
-        // },
+        {
+          title: "One Minute Entertainment",
+          url: "/dashboard/user/chat-inbox/wordpress-packages",
+          icon: <ListCheck />,
+        },
       ],
     },
     {
-      title: "Reviews",
-      icon: <Star />,
+      title: "Agent",
+      icon: <Bot size={30}/>,
       isActive: false,
       items: [
         {
-          title: "Given Reviews",
-          url: "/user/dashboard/given-reviews",
-          icon: <MessageSquareDiff />,
+          title: "Profile",
+          url: "/user/dashboard/profile",
+          icon: <User2 />,
         },
+      ],
+    },
+    {
+      title: "Feedback",
+      icon: <MessageSquareQuote size={30}/>,
+      isActive: false,
+      items: [
         {
-          title: "Received Reviews",
-          url: "/user/dashboard/received-reviews",
-          icon: <MessageSquareDiff />,
+          title: "Profile",
+          url: "/user/dashboard/profile",
+          icon: <User2 />,
         },
       ],
     },
     {
       title: "Settings",
-      icon: <Settings />,
+      icon: <Settings size={30}/>,
       isActive: false,
       items: [
         {
           title: "Profile",
+          url: "/user/dashboard/profile",
+          icon: <User2 />,
+        },
+        {
+          title: "Help",
+          url: "/user/dashboard/profile",
+          icon: <User2 />,
+        },
+        {
+          title: "Contact",
           url: "/user/dashboard/profile",
           icon: <User2 />,
         },

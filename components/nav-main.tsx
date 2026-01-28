@@ -25,6 +25,7 @@ interface INavItems {
   icon: JSX.Element;
   isActive: boolean;
   items: INavItem[];
+  url?: string
 }
 
 interface INavItem {
@@ -63,6 +64,7 @@ export function NavMain({
         {navItems &&
           navItems.length > 0 &&
           navItems.map((item) => {
+            console.log(item);
             return (
               <Collapsible
                 key={item.title}
@@ -71,16 +73,39 @@ export function NavMain({
                 className={`group/collapsible mb-3`}
               >
                 <SidebarMenuItem className={``}>
-                  <CollapsibleTrigger asChild>
-                    <SidebarMenuButton
-                      className={`cursor-pointer font-medium text-gray-700 text-md py-6 hover:bg-gradient-to-r hover:from-red-200 hover:to-red-500`}
-                      tooltip={item.title}
-                    >
-                      <span>{item?.icon}</span>
-                      <span className="text-lg font-bold">{item.title}</span>
-                      <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                    </SidebarMenuButton>
-                  </CollapsibleTrigger>
+                  {item?.items?.length > 0 ?
+
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton
+                        item={item}
+                        className={`cursor-pointer font-medium text-gray-700 text-md py-6 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-all duration-100 ease-in ${item?.isActive && 'bg-gradient-to-r from-primary to-secondary text-white hover:text-white'}`}
+                        tooltip={item.title}
+                      >
+                        <span>{item?.icon}</span>
+                        <span className="text-lg font-bold">{item.title}</span>
+                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+
+                    :
+
+                    <Link href={item?.url ? item?.url : ''}>
+                      <SidebarMenuButton
+                        item={item}
+                        className={`cursor-pointer font-medium text-gray-700 text-md py-6 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-all duration-100 ease-in ${item?.isActive && 'bg-gradient-to-r from-primary to-secondary text-white hover:text-white'}`}
+                        tooltip={item.title}
+                      >
+                        <span>{item?.icon}</span>
+                        <span className="text-lg font-bold">{item.title}</span>
+                      </SidebarMenuButton>
+                    </Link>
+
+
+                  }
+
+
+
+
                   <CollapsibleContent>
                     <SidebarMenuSub>
                       {item.items?.map((subItem) => (
@@ -90,9 +115,8 @@ export function NavMain({
                         >
                           <SidebarMenuSubButton asChild>
                             <Link
-                              className={`${
-                                subItem.url === pathName && "bg-gray-300"
-                              } rounded-md py-5 px-3 font-medium`}
+                              className={`${subItem.url === pathName && "bg-gray-300"
+                                } rounded-md py-5 px-3 font-medium`}
                               href={subItem.url}
                             >
                               <span className="font-medium text-lg text-gray-700">{subItem.title}</span>
