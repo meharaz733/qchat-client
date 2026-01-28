@@ -1,4 +1,4 @@
-import SignupPageForm from "@/components/pages/auth/SignUpForm";
+import SignupPageForm from "@/components/pages/auth/SignupForm";
 
 export default function SignupPage() {
   return (
