@@ -73,7 +73,7 @@ export function NavMain({
                 <SidebarMenuItem className={``}>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton
-                      className={`cursor-pointer font-medium text-gray-700 text-md py-6 ${item.isActive && 'brand-gradient text-white '} hover:text-white`}
+                      className={`cursor-pointer font-medium text-gray-700 text-md py-6 hover:bg-gradient-to-r hover:from-red-200 hover:to-red-500`}
                       tooltip={item.title}
                     >
                       <span>{item?.icon}</span>
