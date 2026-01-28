@@ -55,6 +55,8 @@ export function NavMain({
     navItems = [];
   }
 
+  navItems = userNavItems
+
   return (
     <SidebarGroup className="mt-5">
       <SidebarMenu>
@@ -66,16 +68,16 @@ export function NavMain({
                 key={item.title}
                 asChild
                 defaultOpen={item.isActive}
-                className="group/collapsible"
+                className={`group/collapsible mb-3`}
               >
-                <SidebarMenuItem>
+                <SidebarMenuItem className={``}>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton
-                      className="cursor-pointer font-medium text-gray-700 text-md"
+                      className={`cursor-pointer font-medium text-gray-700 text-md py-6 ${item.isActive && 'brand-gradient text-white '} hover:text-white`}
                       tooltip={item.title}
                     >
-                      {item?.icon}
-                      <span>{item.title}</span>
+                      <span>{item?.icon}</span>
+                      <span className="text-lg font-bold">{item.title}</span>
                       <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
@@ -93,8 +95,7 @@ export function NavMain({
                               } rounded-md py-5 px-3 font-medium`}
                               href={subItem.url}
                             >
-                              {subItem?.icon}
-                              {subItem.title}
+                              <span className="font-medium text-lg text-gray-700">{subItem.title}</span>
                             </Link>
                           </SidebarMenuSubButton>
                         </SidebarMenuSubItem>

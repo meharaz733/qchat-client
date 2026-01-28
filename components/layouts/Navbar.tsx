@@ -71,7 +71,7 @@ const dropDownMenuItems: IDropDownMenuItems[] = [
   {
     icon: <User/>,
     title: 'Dashboard',
-    href: '/dashboard'
+    href: '/dashboard/user'
   }
 ]
 
@@ -189,7 +189,7 @@ const Navbar = ({
 
             {/* avatar  */}
             <DropdownMenuComp dropdownMenuItems={dropDownMenuItems} className="w-[200px]">
-              <Avatar>
+              <Avatar className="cursor-pointer">
                 <AvatarImage src="https://github.com/shadcn.png" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>

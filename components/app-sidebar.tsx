@@ -66,23 +66,23 @@ const data = {
   userNavItems: [
     {
       title: "Travel Plans",
-      icon: <PlaneTakeoff />,
+      icon: <PlaneTakeoff size={28}/>,
       isActive: true,
       items: [
         {
           title: "Create Plan",
           url: "/user/dashboard/create-plan",
-          icon: <BaggageClaim />,
+          icon: <BaggageClaim size={28}/>,
         },
         {
           title: "My Plans",
           url: "/user/dashboard/my-travel-plans",
-          icon: <List />,
+          icon: <List size={28}/>,
         },
         {
           title: "Matched Travelers",
           url: "/user/dashboard/matched-travelers",
-          icon: <Users />,
+          icon: <Users size={28}/>,
         },
       ],
     },

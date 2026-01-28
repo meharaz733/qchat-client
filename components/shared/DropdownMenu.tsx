@@ -28,7 +28,7 @@ export function DropdownMenuComp({ children, dropdownMenuItems = [], className =
             <DropdownMenuContent className={`${className}`}>
                 {dropdownMenuItems.length && dropdownMenuItems.map((menuItem: IDropDownMenuItems, index: number) => {
                     return <Link className="cursor-pointer" href={menuItem?.href} key={index}>
-                        <DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer">
                             {menuItem?.icon}
                             {menuItem?.title}
                         </DropdownMenuItem>
