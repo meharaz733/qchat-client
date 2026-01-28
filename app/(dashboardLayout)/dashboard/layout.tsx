@@ -1,5 +1,5 @@
 export const dynamic = "force-dynamic";
-import { AppSidebar } from "@/components/app";
+import { AppSidebar } from "@/components/app-sidebar";
 import DashboardNavbar from "@/components/modules/dashboard/dashboard-navbar/DashbaordNavbar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 // import getLogedInUser from "@/services/user/userManagement";
