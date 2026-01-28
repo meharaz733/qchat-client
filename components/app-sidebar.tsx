@@ -81,6 +81,15 @@ const data = {
       ],
     },
     {
+      title: "Chat Inbox",
+      icon: <MessagesSquare size={30}/>,
+      isActive: false,
+      url: '/dashboard/user/chat-inbox',
+      items: [
+        
+      ],
+    },
+    {
       title: "Add Document",
       icon: <ScrollText size={30} />,
       isActive: false,
@@ -89,32 +98,11 @@ const data = {
       ],
     },
     {
-      title: "Chat Inbox",
-      icon: <MessagesSquare size={30}/>,
-      isActive: false,
-      items: [
-        {
-          title: "WordPress Pcakges",
-          url: "/dashboard/user/chat-inbox/wordpress-packages",
-          icon: <ListCheck />,
-        },
-        {
-          title: "One Minute Entertainment",
-          url: "/dashboard/user/chat-inbox/wordpress-packages",
-          icon: <ListCheck />,
-        },
-      ],
-    },
-    {
       title: "Agent",
       icon: <Bot size={30}/>,
       isActive: false,
       items: [
-        {
-          title: "Profile",
-          url: "/user/dashboard/profile",
-          icon: <User2 />,
-        },
+        
       ],
     },
     {
@@ -122,11 +110,7 @@ const data = {
       icon: <MessageSquareQuote size={30}/>,
       isActive: false,
       items: [
-        {
-          title: "Profile",
-          url: "/user/dashboard/profile",
-          icon: <User2 />,
-        },
+        
       ],
     },
     {
