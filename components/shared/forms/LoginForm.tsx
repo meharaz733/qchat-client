@@ -9,10 +9,9 @@ import {
   FieldSeparator,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import Image from "next/image"
 import Link from "next/link"
 
-export default function LoginPageForm({
+export default function LoginFormComp({
   className,
   ...props
 }: React.ComponentProps<"div">) {
